@@ -22,13 +22,16 @@ const Countries = () => {
                 {
                     radios.map((continent) => (
                         <li>
-                            <input type="radio" id={continent} name='continentRadio' onChange={(e) => setSelectedRadio(e.target.id)}/>
+                            <input type="radio" id={continent} name='continentRadio' checked={continent === selectedRadio} 
+                                onChange={(e) => setSelectedRadio(e.target.id)}/>
                             <label htmlFor={continent}>{continent}</label>
                         </li>
                     ))
                 }
             </ul>
-            <h1>Countries</h1>
+            {selectedRadio && (
+                <button onClick={() => setSelectedRadio('')}>Annuler la recherche</button>
+            )}
             <ul>
                 {
                     data
