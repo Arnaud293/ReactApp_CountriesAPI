@@ -21,7 +21,7 @@ const Countries = () => {
                 {
                     radios.map((continent) => (
                         <li>
-                            <input type="radio" id={continent} />
+                            <input type="radio" id={continent} name='continentRadio'/>
                             <label htmlFor={continent}>{continent}</label>
                         </li>
                     ))
