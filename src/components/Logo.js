@@ -3,8 +3,8 @@ import React from 'react';
 const Logo = () => {
     return (
         <div className="logo">
-            <img src="" alt="logo react" />
-            <h2>React World</h2>
+            <img src="./logo192.png" alt="logo react" />
+            <h3>React World</h3>
         </div>
     );
 };
