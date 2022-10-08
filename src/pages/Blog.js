@@ -8,6 +8,13 @@ const Blog = () => {
            <Logo />
            <Nav />
            <h1>Blog</h1>
+
+           <form>
+                <input type="text" placeholder='Nom'/>
+                <textarea placeholder='Message'></textarea>
+                <input type="submit" value="Envoyer" />
+           </form>
+           <ul></ul>
         </div>
     );
 };
