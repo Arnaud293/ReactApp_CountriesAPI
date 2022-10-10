@@ -8,6 +8,7 @@ const Blog = () => {
 
     const [blogData, setBlogData] = useState([]);
     const [content, setContent] = useState('');
+    const [author, setAuthor] = useState('');
     const [error, setError] = useState(false);
 
     const getData = () => {
@@ -26,7 +27,16 @@ const Blog = () => {
         if(content.length < 140){
             setError(true);
         } else {
+            
+            axios.post('http://localhost:3004/articles', {
+                author,
+                content,
+                date : Date.now(),
+            });
             setError(false);
+            setAuthor('');
+            setContent('');
+            getData();
         }
     }
 
@@ -37,8 +47,9 @@ const Blog = () => {
            <h1>Blog</h1>
 
            <form onSubmit={(e) => handleSubmit(e)}>
-                <input type="text" placeholder='Nom'/>
+                <input type="text" placeholder='Nom' value={author}onChange={(e) => setAuthor(e.target.value)}/>
                 <textarea 
+                value={content}
                 style={{border: error ? '1px solid red' : '1px solid #61dafb'}}
                 placeholder='Message' 
                 onChange={(e) => setContent(e.target.value)}></textarea>
