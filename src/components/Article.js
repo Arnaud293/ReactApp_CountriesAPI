@@ -29,6 +29,11 @@ const Article = ({article}) => {
         
     }
 
+    const handleDelete = () => {
+        axios.delete('http://localhost:3004/articles/' + article.id);
+        window.location.reload();
+    }
+
     return (
         <div className='article' style={{background : isEditing ? "#f3feff" : "white" }}>
             <div className="card-header">
@@ -45,7 +50,11 @@ const Article = ({article}) => {
                  : 
                 (<button onClick={() => setIsEditing(true)}>Editer</button>)}
                 
-                <button>Supprimer</button>
+                <button onClick={() => {
+                    if (window.confirm("Voulez-vous vraiment supprimer l'article ?")){
+                        handleDelete();
+                    }
+                }}>Supprimer</button>
             </div>
         </div>
     );
