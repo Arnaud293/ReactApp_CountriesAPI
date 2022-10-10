@@ -1,9 +1,31 @@
 import React from 'react';
 
 const Article = ({article}) => {
+
+    const dateFormater = (date) => {
+        let newDate = new Date(date).toLocaleDateString('fr-FR', {
+            year : 'numeric',
+            month : 'long',
+            day: 'numeric',
+            hour : 'numeric',
+            minute : 'numeric'
+        });
+        return newDate;
+    }
+
     return (
         <div className='article'>
-            <h3>Article</h3>
+            <div className="card-header">
+                <h3>{article.author}</h3>
+                <em>Posté le : {dateFormater(article.date)}</em>
+            </div>
+            <p>
+                {article.content}
+            </p>
+            <div className="btn-container">
+                <button>Editer</button>
+                <button>Supprimer</button>
+            </div>
         </div>
     );
 };
