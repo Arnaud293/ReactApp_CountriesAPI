@@ -47,7 +47,7 @@ const Blog = () => {
            </form>
            <ul>
             {blogData.map((article) => (
-                <Article />
+                <Article  key={article.id} article={article}/>
             ))}
            </ul>
         </div>
