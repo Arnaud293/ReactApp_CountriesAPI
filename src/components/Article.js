@@ -30,14 +30,14 @@ const Article = ({article}) => {
     }
 
     return (
-        <div className='article'>
+        <div className='article' style={{background : isEditing ? "#f3feff" : "white" }}>
             <div className="card-header">
                 <h3>{article.author}</h3>
                 <em>Posté le : {dateFormater(article.date)}</em>
             </div>
             {
                 isEditing ? 
-                <textarea defaultValue={article.content} onChange={(e) => setEditContent(e.target.value)}></textarea> 
+                <textarea defaultValue={editContent ? editContent : article.content} autoFocus onChange={(e) => setEditContent(e.target.value)}></textarea> 
                 :<p>{editContent ? editContent : article.content}</p>    
             }
             <div className="btn-container">
