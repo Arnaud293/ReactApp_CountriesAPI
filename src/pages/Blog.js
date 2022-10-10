@@ -5,11 +5,12 @@ import Nav from '../components/Nav';
 
 const Blog = () => {
 
+    const [blogData, setBlogData] = useState([]);
     const [content, setContent] = useState('');
     const [error, setError] = useState(false);
 
     const getData = () => {
-        axios.get("http://localhost:3004/articles").then((res) => console.log(res.data))
+        axios.get("http://localhost:3004/articles").then((res) => setBlogData(res.data))
     };
 
     useEffect(() => {
