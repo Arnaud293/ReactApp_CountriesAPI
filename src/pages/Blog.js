@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Article from '../components/Article';
 import Logo from '../components/Logo';
 import Nav from '../components/Nav';
 
@@ -44,7 +45,11 @@ const Blog = () => {
                 { error && <p>Veuillez rédiger un message comprenant au minimum 140 caractères</p>}
                 <input type="submit" value="Envoyer" />
            </form>
-           <ul></ul>
+           <ul>
+            {blogData.map((article) => (
+                <Article />
+            ))}
+           </ul>
         </div>
     );
 };
